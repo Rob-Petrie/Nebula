@@ -74,7 +74,7 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/generativeArt/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
+            <state relative-caret-position="700">
               <caret line="90" column="64" lean-forward="false" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,8 +86,8 @@
       <file leaf-file-name="Generate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/generativeArt/Generate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            <state relative-caret-position="-487">
+              <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -741,16 +741,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generativeArt/Generate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/generativeArt/Shapes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -761,9 +751,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/generativeArt/Generate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-487">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/generativeArt/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
+        <state relative-caret-position="700">
           <caret line="90" column="64" lean-forward="false" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
