@@ -1,16 +1,15 @@
 package generativeArt;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 public class Controller {
@@ -20,7 +19,8 @@ public class Controller {
 
     @FXML public Canvas canvas;
 
-    @FXML private GridPane controls;
+    @FXML
+    private ChoiceBox shapeDropdown;
 
     @FXML private void checkCharNum(KeyEvent e) {
         String c = e.getCharacter();
@@ -50,6 +50,9 @@ public class Controller {
         root.prefHeightProperty().addListener((ov, oldValue, newValue) -> {
             canvas.setHeight(newValue.doubleValue()-100);
         });
+
+        shapeDropdown.setItems(FXCollections.observableArrayList("Rectangle", "Oval", "Hexagon"));
+        shapeDropdown.setValue("Rectangle");
     }
 
     @FXML
@@ -87,7 +90,7 @@ public class Controller {
         gc.setFill(Color.BLACK);
         gc.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 
-        Generate.generate("oval", loops, strands, cellW, cellH, offsetX, offsetY, startX, startY, opacity, gc);
+        Generate.generate(shapeDropdown.getValue().toString().toLowerCase(), loops, strands, cellW, cellH, offsetX, offsetY, startX, startY, opacity, gc);
 
 
     }

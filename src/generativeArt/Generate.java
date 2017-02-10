@@ -32,6 +32,10 @@ public class Generate {
                         Shapes.drawOval(currentX, currentY, cellW, cellH, color, graphicsContext);
                     }
 
+                    if(shapeType.equals("hexagon")) {
+                        Shapes.drawHexagon(currentX, currentY, cellW, cellH, color, graphicsContext);
+                    }
+
                     randNum = rand.nextInt(8)+1;
 
                     //Choose direction
