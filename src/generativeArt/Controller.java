@@ -44,11 +44,11 @@ public class Controller {
 
         //Listen for window resize and resize canvas
         root.prefWidthProperty().addListener((ov, oldValue, newValue) -> {
-            canvas.setWidth(newValue.doubleValue());
+            canvas.setWidth(newValue.doubleValue()-300);
         });
 
         root.prefHeightProperty().addListener((ov, oldValue, newValue) -> {
-            canvas.setHeight(newValue.doubleValue()-100);
+            canvas.setHeight(newValue.doubleValue());
         });
 
         shapeDropdown.setItems(FXCollections.observableArrayList("Rectangle", "Oval", "Hexagon"));

@@ -1,77 +1,133 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
-<GridPane fx:id="root" fx:controller="generativeArt.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" >
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-    <Canvas fx:id="canvas" GridPane.columnIndex="0" GridPane.rowIndex="0" width="800" height="700"/>
+<GridPane fx:id="root" alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.112" fx:controller="generativeArt.Controller">
 
-    <GridPane fx:id="controls" GridPane.columnIndex="0" GridPane.rowIndex="1" minHeight="100" maxHeight="100" vgap="10">
+    <Canvas fx:id="canvas" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
-        <Label styleClass="inputLabel" text="Origin X: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="startXTF" GridPane.columnIndex="1" GridPane.rowIndex="0" onKeyTyped="#checkCharNum"/>
+    <GridPane fx:id="controls" alignment="TOP_CENTER" prefWidth="500" vgap="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
 
-        <Separator styleClass="divider" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <Label styleClass="title" text="Controls" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
 
-        <Label styleClass="inputLabel" text="Origin Y: " GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="startYTF" GridPane.columnIndex="4" GridPane.rowIndex="0" onKeyTyped="#checkCharNum"/>
+        <Separator styleClass="divider" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
 
-        <Separator styleClass="divider" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+        <!--Start of coordinate input-->
 
-        <Label styleClass="inputLabel" text="Cell Width: " GridPane.columnIndex="6" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="cellWTF" GridPane.columnIndex="7" GridPane.rowIndex="0" onKeyTyped="#checkCharNum"/>
+        <Label styleClass="inputLabel" text="Origin X: " GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="startXTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-        <Separator styleClass="divider" GridPane.columnIndex="8" GridPane.rowIndex="0"/>
+        <Label styleClass="inputLabel" text="Randomise Origin X: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <CheckBox fx:id="originXRChk" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-        <Label styleClass="inputLabel" text="Cell Height: " GridPane.columnIndex="9" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="cellHTF" GridPane.columnIndex="10" GridPane.rowIndex="0" onKeyTyped="#checkCharNum"/>
+        <Label styleClass="inputLabel" text="Origin Y: " GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="startYTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-        <Separator styleClass="divider" GridPane.columnIndex="11" GridPane.rowIndex="0"/>
+        <Label styleClass="inputLabel" text="Randomise: " GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <CheckBox fx:id="originYRChk" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-        <Label styleClass="inputLabel" text="Offset X: " GridPane.columnIndex="12" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="offsetXTF" GridPane.columnIndex="13" GridPane.rowIndex="0" onKeyTyped="#checkCharNumNeg"/>
+        <!--End of coordinate input-->
 
-        <Separator styleClass="divider" GridPane.columnIndex="14" GridPane.rowIndex="0"/>
+        <!--Start of cell dim input-->
 
-        <Label styleClass="inputLabel" text="Offset Y: " GridPane.columnIndex="15" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="offsetYTF" GridPane.columnIndex="16" GridPane.rowIndex="0" onKeyTyped="#checkCharNumNeg"/>
+        <Label styleClass="inputLabel" text="Cell Width: " GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <TextField fx:id="cellWTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-        <Separator styleClass="divider" GridPane.columnIndex="17" GridPane.rowIndex="0"/>
+        <Label styleClass="inputLabel" text="Cell Height: " GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <TextField fx:id="cellHTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
-        <Label styleClass="inputLabel" text="Strands: " GridPane.columnIndex="18" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="strandsTF" GridPane.columnIndex="19" GridPane.rowIndex="0" onKeyTyped="#checkCharNum"/>
+        <!--End of cell dim input-->
 
-        <Separator styleClass="divider" GridPane.columnIndex="20" GridPane.rowIndex="0"/>
+        <!--Start of offsets input-->
 
-        <Label styleClass="inputLabel" text="Loops: " GridPane.columnIndex="21" GridPane.rowIndex="0"/>
-        <TextField styleClass="inputField" fx:id="loopsTF" GridPane.columnIndex="22" GridPane.rowIndex="0" onKeyTyped="#checkCharNum"/>
+        <Label styleClass="inputLabel" text="Offset X: " GridPane.columnIndex="0" GridPane.rowIndex="10" />
+        <TextField fx:id="offsetXTF" onKeyTyped="#checkCharNumNeg" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
-        <Separator styleClass="divider" GridPane.columnIndex="23" GridPane.rowIndex="0"/>
+        <Label styleClass="inputLabel" text="Offset Y: " GridPane.columnIndex="0" GridPane.rowIndex="12" />
+        <TextField fx:id="offsetYTF" onKeyTyped="#checkCharNumNeg" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
-        <Label styleClass="inputLabel" text="Opacity: " GridPane.columnIndex="24" GridPane.rowIndex="0"/>
-        <Spinner styleClass="inputSpin" fx:id="opacitySpin" GridPane.columnIndex="25" GridPane.rowIndex="0" min="0" max="1" amountToStepBy="0.1" initialValue="0.1"/>
+        <!--End of offsets input-->
 
-        <Separator styleClass="divider" GridPane.columnIndex="26" GridPane.rowIndex="0"/>
+        <!--Start of strand num input-->
 
-        <Label styleClass="inputLabel" text="Shape: " GridPane.columnIndex="27" GridPane.rowIndex="0"/>
-        <ChoiceBox fx:id="shapeDropdown" GridPane.columnIndex="28" GridPane.rowIndex="0"/>
+        <Label styleClass="inputLabel" text="Strands: " GridPane.columnIndex="0" GridPane.rowIndex="14" />
+        <TextField fx:id="strandsTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="14" />
 
-        <Button fx:id="genBtn" text="Generate" onAction="#generate" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2"/>
+        <!--End of strand num input-->
+
+        <!--Start of loop input-->
+
+        <Label styleClass="inputLabel" text="Loops: " GridPane.columnIndex="0" GridPane.rowIndex="16" />
+        <TextField fx:id="loopsTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+
+        <!--End of loop input-->
+
+        <!--Start of opacity input-->
+
+        <Label styleClass="inputLabel" text="Opacity: " GridPane.columnIndex="0" GridPane.rowIndex="18" />
+        <Spinner fx:id="opacitySpin" amountToStepBy="0.1" initialValue="0.1" max="1" min="0" styleClass="inputSpin" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+
+        <!--End of opacity input-->
+
+        <!--Start of shape input-->
+
+        <Label styleClass="inputLabel" text="Shape: " GridPane.columnIndex="0" GridPane.rowIndex="20" />
+        <ChoiceBox fx:id="shapeDropdown" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+
+        <!--End of shape input-->
+
+        <Button fx:id="genBtn" onAction="#generate" text="Generate" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="21" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
 
     </GridPane>
 
     <stylesheets>
-        <URL value="@Style.css"/>
+        <URL value="@Style.css" />
     </stylesheets>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>
