@@ -9,10 +9,9 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.scene.layout.HBox?>
 <GridPane fx:id="root" alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.112" fx:controller="generativeArt.Controller">
 
     <Canvas fx:id="canvas" GridPane.columnIndex="0" GridPane.rowIndex="0" />
@@ -87,47 +86,16 @@
 
         <!--End of shape input-->
 
-        <Button fx:id="genBtn" onAction="#generate" text="Generate" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="21" />
-      <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-      </rowConstraints>
+        <HBox fx:id="genBox" GridPane.columnIndex="0" GridPane.rowIndex="21" GridPane.columnSpan="2" alignment="CENTER">
+            <Button fx:id="genBtn" onAction="#generate" text="Generate" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="21" />
+        </HBox>
 
     </GridPane>
+
+
 
     <stylesheets>
         <URL value="@Style.css" />
     </stylesheets>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
 
 </GridPane>
