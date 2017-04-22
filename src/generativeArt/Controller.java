@@ -1,9 +1,11 @@
 package generativeArt;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
@@ -11,16 +13,30 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.awt.*;
+import java.awt.event.ActionListener;
+
 
 public class Controller {
 
     @FXML private TextField startXTF, startYTF, cellWTF, cellHTF, offsetXTF, offsetYTF, strandsTF, loopsTF;
-    @FXML private Spinner opacitySpin;
+    @FXML private Spinner opacitySpin, rSpin, gSpin, bSpin;
 
     @FXML public Canvas canvas;
 
+    @FXML public ScrollPane controlsScroll;
+
     @FXML
     private ChoiceBox shapeDropdown;
+
+    private boolean randX = false,
+                    randY = false,
+                    randW = false,
+                    randH = false,
+                    randOffsetX = false,
+                    randOffsetY = false,
+                    randOpacity = false,
+                    randCol = true;
 
     @FXML private void checkCharNum(KeyEvent e) {
         String c = e.getCharacter();
@@ -30,8 +46,9 @@ public class Controller {
     }
 
     @FXML private void checkCharNumNeg(KeyEvent e) {
+        TextField parent = (TextField) e.getSource();
         String c = e.getCharacter();
-        if(!"1234567890-.".contains(c)) {
+        if(!"1234567890-.".contains(c) || (parent.getText().contains("-") && "-".contains(c))){
             e.consume();
         }
     }
@@ -53,6 +70,54 @@ public class Controller {
 
         shapeDropdown.setItems(FXCollections.observableArrayList("Rectangle", "Oval", "Hexagon"));
         shapeDropdown.setValue("Rectangle");
+    }
+
+    //Set booleans from checkBoxes
+    @FXML
+    private void setRandX(ActionEvent e) {
+        startXTF.setDisable(!startXTF.isDisabled());
+        randX = !randX;
+    }
+
+    @FXML
+    private void setRandY(ActionEvent e) {
+        startYTF.setDisable(!startYTF.isDisabled());
+        randY = !randY;
+    }
+
+    @FXML
+    private void setRandW(ActionEvent e) {
+        //cellWTF.setDisable(!cellWTF.isDisabled());
+        randW = !randW;
+    }
+
+    @FXML
+    private void setRandH(ActionEvent e) {
+        //cellWTF.setDisable(!cellWTF.isDisabled());
+        randH = !randH;
+    }
+    @FXML
+    private void setRandOpacity(ActionEvent e) {
+        opacitySpin.setDisable(!opacitySpin.isDisabled());
+        randOpacity = !randOpacity;
+    }
+
+    @FXML
+    private void setRandCol(ActionEvent e) {
+        rSpin.setDisable(!rSpin.isDisabled());
+        gSpin.setDisable(!gSpin.isDisabled());
+        bSpin.setDisable(!bSpin.isDisabled());
+        randCol = !randCol;
+    }
+
+    @FXML
+    private void setRandOffsetX(ActionEvent e) {
+        randOffsetX = !randOffsetX;
+    }
+
+    @FXML
+    private void setRandOffsetY(ActionEvent e) {
+        randOffsetY = !randOffsetY;
     }
 
     @FXML
@@ -90,7 +155,8 @@ public class Controller {
         gc.setFill(Color.BLACK);
         gc.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 
-        Generate.generate(shapeDropdown.getValue().toString().toLowerCase(), loops, strands, cellW, cellH, offsetX, offsetY, startX, startY, opacity, gc);
+        Generate.generate(shapeDropdown.getValue().toString().toLowerCase(), loops, strands, cellW, randW, cellH, randH, offsetX, randOffsetX, offsetY, randOffsetY, startX, randX, startY, randY, opacity, randOpacity,
+                (double)rSpin.getValue(), (double)gSpin.getValue(), (double)bSpin.getValue(), randCol, gc);
 
 
     }
