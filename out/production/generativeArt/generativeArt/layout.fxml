@@ -12,7 +12,10 @@
 <?import javafx.scene.layout.GridPane?>
 
 <?import javafx.scene.layout.HBox?>
+<<<<<<< Updated upstream
 <?import javafx.scene.control.ScrollPane?>
+=======
+>>>>>>> Stashed changes
 <GridPane fx:id="root" alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.112" fx:controller="generativeArt.Controller">
 
     <Canvas fx:id="canvas" GridPane.columnIndex="0" GridPane.rowIndex="0" />
@@ -121,6 +124,7 @@
 
         <!--End of shape input-->
 
+<<<<<<< Updated upstream
 
     </GridPane>
 
@@ -130,6 +134,14 @@
         <Button fx:id="genBtn" onAction="#generate" text="Generate" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="25" />
     </HBox>
 
+=======
+        <HBox fx:id="genBox" GridPane.columnIndex="0" GridPane.rowIndex="21" GridPane.columnSpan="2" alignment="CENTER">
+            <Button fx:id="genBtn" onAction="#generate" text="Generate" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="21" />
+        </HBox>
+
+    </GridPane>
+
+>>>>>>> Stashed changes
 
 
     <stylesheets>
