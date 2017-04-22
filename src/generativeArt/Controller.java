@@ -5,16 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-
-import java.awt.*;
-import java.awt.event.ActionListener;
 
 
 public class Controller {
@@ -24,7 +19,7 @@ public class Controller {
 
     @FXML public Canvas canvas;
 
-    @FXML public ScrollPane controlsScroll;
+    @FXML private ScrollPane controlsScroll;
 
     @FXML
     private ChoiceBox shapeDropdown;
@@ -70,6 +65,8 @@ public class Controller {
 
         shapeDropdown.setItems(FXCollections.observableArrayList("Rectangle", "Oval", "Hexagon"));
         shapeDropdown.setValue("Rectangle");
+
+        System.out.println(controlsScroll.getWidth());
     }
 
     //Set booleans from checkBoxes
@@ -158,6 +155,8 @@ public class Controller {
         Generate.generate(shapeDropdown.getValue().toString().toLowerCase(), loops, strands, cellW, randW, cellH, randH, offsetX, randOffsetX, offsetY, randOffsetY, startX, randX, startY, randY, opacity, randOpacity,
                 (double)rSpin.getValue(), (double)gSpin.getValue(), (double)bSpin.getValue(), randCol, gc);
 
+
+        System.out.println(controlsScroll.getHeight());
 
     }
 
