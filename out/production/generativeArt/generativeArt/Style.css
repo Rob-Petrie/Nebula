@@ -3,9 +3,14 @@
     -fx-text-fill: #262626;
 }
 
+#controlsParent {
+    -fx-padding: 0 0 10 0;
+}
+
+#controlsScroll {
+}
+
 #controls {
-    -fx-border-style: solid;
-    -fx-border-width: 0 0 0 0;
     -fx-padding: 10;
 }
 
