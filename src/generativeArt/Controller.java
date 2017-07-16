@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 public class Controller {
 
     @FXML private TextField startXTF, startYTF, cellWTF, cellHTF, offsetXTF, offsetYTF, strandsTF, loopsTF;
+    @FXML private CheckBox originXRChk, originYRChk;
     @FXML private Spinner opacitySpin, rSpin, gSpin, bSpin;
 
     @FXML public Canvas canvas;
@@ -26,6 +27,7 @@ public class Controller {
 
     private boolean randX = false,
                     randY = false,
+                    randGraph = false,
                     randW = false,
                     randH = false,
                     randOffsetX = false,
@@ -83,6 +85,15 @@ public class Controller {
     }
 
     @FXML
+    private void setRandGraph(ActionEvent e) {
+        startXTF.setDisable(!startXTF.isDisabled());
+        startYTF.setDisable(!startYTF.isDisabled());
+        originXRChk.setDisable(!originXRChk.isDisabled());
+        originYRChk.setDisable(!originYRChk.isDisabled());
+        randGraph = !randGraph;
+    }
+
+    @FXML
     private void setRandW(ActionEvent e) {
         //cellWTF.setDisable(!cellWTF.isDisabled());
         randW = !randW;
@@ -95,7 +106,7 @@ public class Controller {
     }
     @FXML
     private void setRandOpacity(ActionEvent e) {
-        opacitySpin.setDisable(!opacitySpin.isDisabled());
+//        opacitySpin.setDisable(!opacitySpin.isDisabled());
         randOpacity = !randOpacity;
     }
 
@@ -152,7 +163,7 @@ public class Controller {
         gc.setFill(Color.BLACK);
         gc.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 
-        Generate.generate(shapeDropdown.getValue().toString().toLowerCase(), loops, strands, cellW, randW, cellH, randH, offsetX, randOffsetX, offsetY, randOffsetY, startX, randX, startY, randY, opacity, randOpacity,
+        Generate.generate(shapeDropdown.getValue().toString().toLowerCase(), loops, strands, cellW, randW, cellH, randH, offsetX, randOffsetX, offsetY, randOffsetY, startX, randX, startY, randY, randGraph, opacity, randOpacity,
                 (double)rSpin.getValue(), (double)gSpin.getValue(), (double)bSpin.getValue(), randCol, gc);
 
 

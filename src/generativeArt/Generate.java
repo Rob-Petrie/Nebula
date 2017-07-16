@@ -3,19 +3,22 @@ package generativeArt;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Random;
 
 public class Generate {
 
 
     public static void generate(String shapeType, float loops, float strands, float cellW, boolean randW, float cellH, boolean randH, float offsetX, boolean randOffsetX, float offsetY, boolean randOffsetY,
-                                float startX, boolean randX, float startY, boolean randY, float opacity, boolean randOpacity, double r, double g, double b, boolean randCol, GraphicsContext graphicsContext) {
+                                float startX, boolean randX, float startY, boolean randY, boolean graphGen, float opacity, boolean randOpacity, double r, double g, double b, boolean randCol, GraphicsContext graphicsContext) {
 
         Random rand = new Random();
         int randNum;
         int newCellW, newCellH;
         float newXOffset, newYOffset;
+        Curve curve = new Curve(0,0,0, graphicsContext);
 
+            //Loop through the strand code.
             for(int strandNum = 1; strandNum <= strands; strandNum++) {
 
                 //Set random origin if booleans are set.
@@ -32,7 +35,7 @@ public class Generate {
                     currentY = startY;
                 }
 
-                if(randOpacity) opacity = rand.nextFloat();
+                if(randOpacity) opacity = rand.nextFloat() * opacity;
 
                 Color color;
                 if(randCol) {
@@ -55,6 +58,15 @@ public class Generate {
                     newCellH = (int)cellH;
                 }
 
+                if(graphGen) {
+
+                    curve = new Curve(2, 2, 2, graphicsContext);
+
+                    curve.genYCoords();
+
+                }
+
+                //Start looping for the current strand.
                 for(int loopNum = 1; loopNum <= loops; loopNum++) {
 
                     //Set shape type.
@@ -82,38 +94,52 @@ public class Generate {
                         newYOffset = offsetY;
                     }
 
-                    randNum = rand.nextInt(8)+1;
+                    //If the user has selected to generate with graphs, then
+                    if(graphGen && currentX <= graphicsContext.getCanvas().getWidth()) {
 
-                    //Choose direction
-                    switch (randNum) {
-                        case 1:
-                            currentY -= (cellH + newYOffset);
-                            break;
-                        case 2:
-                            currentX += (cellW + newXOffset);
-                            currentY -= (cellH + newYOffset);
-                            break;
-                        case 3:
-                            currentX += (cellW + newXOffset);
-                            break;
-                        case 4:
-                            currentX += (cellW + newXOffset);
-                            currentY += (cellH + newYOffset);
-                            break;
-                        case 5:
-                            currentY += (cellH + newYOffset);
-                            break;
-                        case 6:
-                            currentX -= (cellW + newXOffset);
-                            currentY += (cellH + newYOffset);
-                            break;
-                        case 7:
-                            currentX -= (cellW + newXOffset);
-                            break;
-                        case 8:
-                            currentX -= (cellW + newXOffset);
-                            currentY -= (cellH + newYOffset);
-                            break;
+                        currentY = curve.getYCoords().get((int)currentX);
+                        currentX += 1;
+
+                        for(int i = 0; i < curve.getYCoords().size(); i++) {
+                            System.out.println(curve.getYCoords().get(i));
+                        }
+
+
+                    } else {
+
+                        randNum = rand.nextInt(8)+1;
+
+                        //Choose direction
+                        switch (randNum) {
+                            case 1:
+                                currentY -= (cellH + newYOffset);
+                                break;
+                            case 2:
+                                currentX += (cellW + newXOffset);
+                                currentY -= (cellH + newYOffset);
+                                break;
+                            case 3:
+                                currentX += (cellW + newXOffset);
+                                break;
+                            case 4:
+                                currentX += (cellW + newXOffset);
+                                currentY += (cellH + newYOffset);
+                                break;
+                            case 5:
+                                currentY += (cellH + newYOffset);
+                                break;
+                            case 6:
+                                currentX -= (cellW + newXOffset);
+                                currentY += (cellH + newYOffset);
+                                break;
+                            case 7:
+                                currentX -= (cellW + newXOffset);
+                                break;
+                            case 8:
+                                currentX -= (cellW + newXOffset);
+                                currentY -= (cellH + newYOffset);
+                                break;
+                        }
 
                     }
 

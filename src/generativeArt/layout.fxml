@@ -41,44 +41,47 @@
             <Label styleClass="inputLabel" text="Randomise Origin Y: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
             <CheckBox fx:id="originYRChk" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction="#setRandY"/>
 
+            <Label styleClass="inputLabel" text="Use a random graph to gen coords: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <CheckBox fx:id="graphGenChk" GridPane.columnIndex="1" GridPane.rowIndex="6" onAction="#setRandGraph"/>
+
             <!--End of coordinate input-->
 
             <!--Start of cell dim input-->
 
-            <Label styleClass="inputLabel" text="Cell Width: " GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <TextField fx:id="cellWTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label styleClass="inputLabel" text="Cell Width: " GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <TextField fx:id="cellWTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-            <Label styleClass="inputLabel" text="Randomise Cell Width: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-            <CheckBox fx:id="cellWRChk" GridPane.columnIndex="1" GridPane.rowIndex="7" onAction="#setRandW"/>
+            <Label styleClass="inputLabel" text="Randomise Cell Width: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+            <CheckBox fx:id="cellWRChk" GridPane.columnIndex="1" GridPane.rowIndex="8" onAction="#setRandW"/>
 
-            <Label styleClass="inputLabel" text="Cell Height: " GridPane.columnIndex="0" GridPane.rowIndex="8" />
-            <TextField fx:id="cellHTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label styleClass="inputLabel" text="Cell Height: " GridPane.columnIndex="0" GridPane.rowIndex="9" />
+            <TextField fx:id="cellHTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
-            <Label styleClass="inputLabel" text="Randomise Cell Height: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-            <CheckBox fx:id="cellHRChk" GridPane.columnIndex="1" GridPane.rowIndex="9" onAction="#setRandH"/>
+            <Label styleClass="inputLabel" text="Randomise Cell Height: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+            <CheckBox fx:id="cellHRChk" GridPane.columnIndex="1" GridPane.rowIndex="10" onAction="#setRandH"/>
 
             <!--End of cell dim input-->
 
             <!--Start of offsets input-->
 
-            <Label styleClass="inputLabel" text="Offset X: " GridPane.columnIndex="0" GridPane.rowIndex="10" />
-            <TextField fx:id="offsetXTF" onKeyTyped="#checkCharNumNeg" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label styleClass="inputLabel" text="Offset X: " GridPane.columnIndex="0" GridPane.rowIndex="11" />
+            <TextField fx:id="offsetXTF" onKeyTyped="#checkCharNumNeg" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
 
-            <Label styleClass="inputLabel" text="Randomise X Offset: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-            <CheckBox fx:id="offsetXRChk" GridPane.columnIndex="1" GridPane.rowIndex="11" onAction="#setRandOffsetX"/>
+            <Label styleClass="inputLabel" text="Randomise X Offset: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+            <CheckBox fx:id="offsetXRChk" GridPane.columnIndex="1" GridPane.rowIndex="12" onAction="#setRandOffsetX"/>
 
-            <Label styleClass="inputLabel" text="Offset Y: " GridPane.columnIndex="0" GridPane.rowIndex="12" />
-            <TextField fx:id="offsetYTF" onKeyTyped="#checkCharNumNeg" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label styleClass="inputLabel" text="Offset Y: " GridPane.columnIndex="0" GridPane.rowIndex="13" />
+            <TextField fx:id="offsetYTF" onKeyTyped="#checkCharNumNeg" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
-            <Label styleClass="inputLabel" text="Randomise Y Offset: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-            <CheckBox fx:id="offsetYRChk" GridPane.columnIndex="1" GridPane.rowIndex="13" onAction="#setRandOffsetY"/>
+            <Label styleClass="inputLabel" text="Randomise Y Offset: " wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+            <CheckBox fx:id="offsetYRChk" GridPane.columnIndex="1" GridPane.rowIndex="14" onAction="#setRandOffsetY"/>
 
             <!--End of offsets input-->
 
             <!--Start of strand num input-->
 
-            <Label styleClass="inputLabel" text="Strands: " GridPane.columnIndex="0" GridPane.rowIndex="14" />
-            <TextField fx:id="strandsTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label styleClass="inputLabel" text="Strands: " GridPane.columnIndex="0" GridPane.rowIndex="15" />
+            <TextField fx:id="strandsTF" onKeyTyped="#checkCharNum" styleClass="inputField" GridPane.columnIndex="1" GridPane.rowIndex="15" />
 
             <!--End of strand num input-->
 
