@@ -1,3 +1,2 @@
-# Generative Art
-Art generated in strands of shapes
-
+# Nebula
+Generative art software that creates varied strands of colourful shapes on the basis of user-set values.
